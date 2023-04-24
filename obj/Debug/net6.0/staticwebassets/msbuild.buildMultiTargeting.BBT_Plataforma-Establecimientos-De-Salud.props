@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\BBT_Plataforma-Establecimientos-De-Salud.props" />
+</Project>

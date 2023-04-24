@@ -1,0 +1,114 @@
+﻿@model List<BBT_Plataforma_Establecimientos_De_Salud.Models.DB.EstablecimientoDeSalud>
+@{
+    ViewData["Title"] = "Index";
+}
+@section scripts{
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+        // Inicializar y añadir el mapa
+        function initMap() {
+            // La localizacion de Tacna
+            const tacna = { lat: -18.014810, lng: -70.249888 };
+            // El mapa centrado en Tacna
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                mapId: '54cee5be7cf638f8',
+                center: tacna,
+            });
+        @foreach (var items in Model)
+        {
+            @Html.Raw(
+            // Lost marcadores, posicionados en los establecimientos de Salud
+            "const"+items.Id+" = new google.maps.Marker({position: {lat:"+items.Latitud.ToString().Replace(',', '.')+",lng:"+items.Longitud.ToString().Replace(',', '.')+"}, map: map,});")
+        }
+        
+        }
+
+        window.initMap = initMap;
+    </script>
+}
+@section style {
+    <style>
+        #map {
+            width: 100%;
+            height: 100vh
+        }
+    </style>
+}
+@section scriptsBody{
+    <!-- Script para llamar a la API de Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRC-cA8A-wCyTJoPe2wLtOk1_9aPzVCA&v=beta&callback=initMap&v=weekly"
+            defer></script>
+}
+<!--Primera Parte-->
+<div id="Search" class="h-50 bg-primary bg-gradient d-flex rounded-bottom">
+    <div id="Text" class="ms-5 col-md-6 align-self-center">
+        <p class="fs-1 fw-bold text-white d-flex justify-content-evenly">
+            Encuentra hoy, <br /> tu establecimiento de salud <br />
+        </p>
+        <p class="fs-6 fw-bold text-white-50 d-flex justify-content-center">ByteBusterTEC te conecta con establecimientos de salud en tu ciudad</p>
+        <!--Barra de búsqueda-->
+        <div id="SearchBar" class="d-flex justify-content-center">
+            <div class="rounded-pill bg-white p-3 col-md-6">
+                @using (Html.BeginForm("Buscar", "EstablecimientoDeSalud", FormMethod.Post))
+                {
+                    <div class="d-flex">
+                        @Html.TextBox("criterio", null, new { @class = "form-control me-2 bg-light rounded-pill", placeholder = "Ingresa los criterios de búsqueda", aria_label = "Buscar" })
+                        <button type="submit" class="btn btn-info">Buscar</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="Image" class="col-md-6 me-3">
+        <img src="~/img/Clinica2.png" class="img-fluid" alt="Responsive image">
+    </div>
+</div>
+
+<!--Segunda Parte-->
+<div id="Sugerencias" class="container bg-light">
+    <h1>Sugerencias</h1>
+    <div class="row">
+        <!--Primera columna de Tarjetas-->
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Item 1</h5>
+                    <p class="card-text">Description of Item 1.</p>
+                    <a href="#" class="btn btn-info">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <!--Segunda columna de Tarjetas-->
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Item 2</h5>
+                    <p class="card-text">Description of Item 2.</p>
+                    <a href="#" class="btn btn-info">Ver Detalles</a>
+                </div>
+            </div>
+        </div>
+        <!--Tercera columna de Tarjetas-->
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Item 3</h5>
+                    <p class="card-text">Description of Item 3.</p>
+                    @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
+                    {
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-info">Ver Detalles</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Mapa de Google-->
+<div id="map" class="container mt-5"></div>
