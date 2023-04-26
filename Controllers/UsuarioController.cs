@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BBT_EstablecimientosDeSalud.Models.DB;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BBT_Plataforma_Establecimientos_De_Salud.Models;
-using BBT_Plataforma_Establecimientos_De_Salud.Models.DB;
+using BBT_EstablecimientosDeSalud.Models;
 
-namespace BBT_Plataforma_Establecimientos_De_Salud.Controllers
+namespace BBT_EstablecimientosDeSalud.Controllers
 {
     public class UsuarioController : Controller
     {
@@ -15,15 +15,7 @@ namespace BBT_Plataforma_Establecimientos_De_Salud.Controllers
         }
         public IActionResult Registrar(Usuario objUsu)
         {
-            if (ModelState.IsValid)
-            {
-                objUsu.Registrar();
-                return View(objUsu);
-            }
-            else
-            {
-                return View(objUsu);
-            }
+            return View(objUsu);
         }
     }
 }

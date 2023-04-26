@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\BBT_Plataforma-Establecimientos-De-Salud.props" />
-</Project>

@@ -55,7 +55,7 @@
                     <a class="nav-link text-white" href="#">Nosotros</a>
                     @if (HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre") != null)
                     {
-                        
+
                     }
                     else
                     {
@@ -65,24 +65,24 @@
                     {
                         <li class="nav-item">
                             <!--Condicion de Login-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" role="button">
-                                        @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="~/Usuario/Perfil">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="~/EstablecimientosDeSalud/Index">Cerrar Sesión</a></li>
-                                </ul>
-                            </li>
-                      </li>
-                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button">
+                                    @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Usuario/Perfil">Perfil</a></li>
+                                <li><a class="dropdown-item" href="~/EstablecimientosDeSalud/Index">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                        </li>
+
                     }
                     else
                     {
 
                         <a class="nav-link text-white" href="~/Login/Login">Login</a>
                     }
-                    
+
                 </ul>
             </div>
         </div>
@@ -93,7 +93,7 @@
     </div>
     <!--Mapa de Google-->
     @RenderSection("scriptsBody", required: false)
-  
+
     <!--DataTables-->
     <script src="~/DataTables/datatables.min.js"></script>
     <!--ResponseModel-->

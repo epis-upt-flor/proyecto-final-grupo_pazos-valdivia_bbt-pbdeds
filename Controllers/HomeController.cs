@@ -1,9 +1,9 @@
-﻿using BBT_Plataforma_Establecimientos_De_Salud.Models;
-using BBT_Plataforma_Establecimientos_De_Salud.Models.DB;
+﻿using BBT_EstablecimientosDeSalud.Models;
+using BBT_EstablecimientosDeSalud.Models.DB;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BBT_Plataforma_Establecimientos_De_Salud.Controllers
+namespace BBT_EstablecimientosDeSalud.Controllers
 {
     public class HomeController : Controller
     {

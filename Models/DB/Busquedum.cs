@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BBT_Plataforma_Establecimientos_De_Salud.Models.DB;
+namespace BBT_EstablecimientosDeSalud.Models.DB;
 
 public partial class Busquedum
 {

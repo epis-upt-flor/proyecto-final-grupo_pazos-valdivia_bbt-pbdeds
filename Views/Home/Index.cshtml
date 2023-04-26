@@ -1,4 +1,4 @@
-﻿@model List<BBT_Plataforma_Establecimientos_De_Salud.Models.DB.EstablecimientoDeSalud>
+﻿@model List<BBT_EstablecimientosDeSalud.Models.DB.EstablecimientoDeSalud>
 @{
     ViewData["Title"] = "Index";
 }
@@ -21,8 +21,8 @@
             // Lost marcadores, posicionados en los establecimientos de Salud
             "const"+items.Id+" = new google.maps.Marker({position: {lat:"+items.Latitud.ToString().Replace(',', '.')+",lng:"+items.Longitud.ToString().Replace(',', '.')+"}, map: map,});")
         }
-        
-        }
+
+                }
 
         window.initMap = initMap;
     </script>
@@ -53,6 +53,15 @@
                 @using (Html.BeginForm("Buscar", "EstablecimientoDeSalud", FormMethod.Post))
                 {
                     <div class="d-flex">
+                        @Html.DropDownList("epsid", new List<SelectListItem>
+                    {
+                    new SelectListItem { Text = "Seleccione EPS", Value = "" },
+                    new SelectListItem { Text = "La Positiva", Value = "1" },
+                    new SelectListItem { Text = "Mapfre", Value = "2" },
+                    new SelectListItem { Text = "Pacifico", Value = "3" },
+                    new SelectListItem { Text = "Rimac", Value = "4" },
+                    new SelectListItem { Text = "Sanitas", Value = "5" }
+                    }, new { @class = "form-control me-2 bg-light rounded-pill", required = "required" })
                         @Html.TextBox("criterio", null, new { @class = "form-control me-2 bg-light rounded-pill", placeholder = "Ingresa los criterios de búsqueda", aria_label = "Buscar" })
                         <button type="submit" class="btn btn-info">Buscar</button>
                     </div>

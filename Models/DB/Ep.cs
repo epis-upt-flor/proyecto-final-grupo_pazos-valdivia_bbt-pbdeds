@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace BBT_EstablecimientosDeSalud.Models.DB;
+
+public partial class Ep
+{
+    public int Id { get; set; }
+
+    public string Nombre { get; set; } = null!;
+
+    public virtual ICollection<EstablecimientoDeSalud> EstablecimientoDeSaluds { get; set; } = new List<EstablecimientoDeSalud>();
+    public Ep BuscarId(int EpsId)
+    {
+        Ep objEps = new Ep();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var EpsID = from datos in db.Eps select datos;
+                objEps = EpsID.Where(e => e.Id == EpsId).FirstOrDefault();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEps;
+    }
+}

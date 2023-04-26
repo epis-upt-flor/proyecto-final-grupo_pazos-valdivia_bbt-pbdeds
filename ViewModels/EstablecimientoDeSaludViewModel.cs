@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BBT_Plataforma_Establecimientos_De_Salud.Models;
-using BBT_Plataforma_Establecimientos_De_Salud.Models.DB;
+using BBT_EstablecimientosDeSalud.Models;
+using BBT_EstablecimientosDeSalud.Models.DB;
 
-namespace BBT_Plataforma_Establecimientos_De_Salud.ViewModel
+namespace BBT_EstablecimientosDeSalud.ViewModels
 {
     public class EstablecimientoDeSaludViewModel
     {
@@ -13,5 +13,6 @@ namespace BBT_Plataforma_Establecimientos_De_Salud.ViewModel
         public Valoracion valoracion { get; set; }
         public List<Valoracion> listValoracion { get; set; }
         public int TotalValoraciones { get; set; }
+        public Ep eps { get; set; }
     }
 }

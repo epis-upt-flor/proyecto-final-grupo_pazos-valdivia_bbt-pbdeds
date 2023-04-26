@@ -1,4 +1,4 @@
-namespace BBT_Plataforma_Establecimientos_De_Salud.Models
+namespace BBT_EstablecimientosDeSalud.Models
 {
     public class ErrorViewModel
     {

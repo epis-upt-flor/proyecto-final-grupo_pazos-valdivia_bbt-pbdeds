@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace BBT_Plataforma_Establecimientos_De_Salud.Models.DB;
+namespace BBT_EstablecimientosDeSalud.Models.DB;
 
 public partial class Valoracion
 {
@@ -14,12 +14,12 @@ public partial class Valoracion
 
     public string? Comentario { get; set; }
 
-    public int? Valoracion1 { get; set; }
+    public int Valoracion1 { get; set; }
 
     public virtual EstablecimientoDeSalud Establecimiento { get; set; } = null!;
 
     public virtual Usuario Usuario { get; set; } = null!;
-
+    //Metodos
     public void Guardar()
     {
         try
