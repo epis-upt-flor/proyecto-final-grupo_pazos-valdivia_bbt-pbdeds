@@ -9,7 +9,26 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         EstablecimientoDeSalud Est = new EstablecimientoDeSalud();
         public IActionResult Buscar(string criterio, int epsid)
         {
-            return View();
+            EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+            List<EstablecimientoDeSaludViewModel> listEstvm = new List<EstablecimientoDeSaludViewModel>();
+            Ep objEp = new Ep();
+            var listEst = new List<EstablecimientoDeSalud>();
+            if (criterio == "" || criterio == null)
+            {
+                listEst = objEst.Listar().Where(x => x.EpsId == epsid).ToList();
+            }
+            else
+            {
+                listEst = objEst.Buscar(criterio).Where(x => x.EpsId == epsid).ToList();
+            }
+            foreach (var item in listEst)
+            {
+                EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
+                objEstvm.estSalud = item;
+                objEstvm.eps = objEp.BuscarId(item.EpsId);
+                listEstvm.Add(objEstvm);
+            }
+            return View(listEstvm);
         }
         public IActionResult Detalle(int EstId)
         {
@@ -18,7 +37,8 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         [HttpPost]
         public IActionResult Valorar(Valoracion objVal)
         {
-            return View(objVal);
+            objVal.Guardar();
+            return RedirectToAction("Detalle", new { EstId = objVal.EstablecimientoId }); ;
         }
     }
 }
