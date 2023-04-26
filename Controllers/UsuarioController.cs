@@ -15,7 +15,15 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         }
         public IActionResult Registrar(Usuario objUsu)
         {
-            return View(objUsu);
+            if (ModelState.IsValid)
+            {
+                objUsu.Registrar();
+                return View(objUsu);
+            }
+            else
+            {
+                return View(objUsu);
+            }
         }
     }
 }

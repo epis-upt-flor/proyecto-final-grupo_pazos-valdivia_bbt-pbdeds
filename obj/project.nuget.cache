@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jcxa243HUemlDzVLLcdZVptDmN3Pgdk8CEpsxtVh1adV6Wlk6Qa7Cxksp/ytSAqPN8JanvFTIolnxhpwzgQxBw==",
+  "dgSpecHash": "chcRN/lByEuwm16W2vmV5E1jCd+VNObwdY20HIS8o5Yil3VSz7nJmRgYKltQ02svhBHqINalgv0GKIVjcP8xHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joshu\\source\\repos\\BBT_EstablecimientosDeSalud\\BBT_EstablecimientosDeSalud.csproj",
+  "projectFilePath": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\BBT_EstablecimientosDeSalud.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joshu\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\joshu\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
