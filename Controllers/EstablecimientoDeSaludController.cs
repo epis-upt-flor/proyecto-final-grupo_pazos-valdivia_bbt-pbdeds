@@ -32,7 +32,17 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         }
         public IActionResult Detalle(int EstId)
         {
-            return View();
+            Ep objEp = new Ep();
+            EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+            EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
+            Valoracion objVal = new Valoracion();
+            var IdEst = objEst.BuscarId(EstId);
+            objEstvm.estSalud = IdEst;
+            objEstvm.eps = objEp.BuscarId(IdEst.EpsId);
+            objEstvm.valoracion = objVal.BuscarId(IdEst.Id);
+            objEstvm.listValoracion = objVal.ListarId(IdEst.Id);
+            objEstvm.TotalValoraciones = (objEstvm.listValoracion.Count() == 0) ? 0 : Convert.ToInt32(objEstvm.listValoracion.Sum(x => x.Valoracion1) / objEstvm.listValoracion.Count());
+            return View(objEstvm);
         }
         [HttpPost]
         public IActionResult Valorar(Valoracion objVal)
