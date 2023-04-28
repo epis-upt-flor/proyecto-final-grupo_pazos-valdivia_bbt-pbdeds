@@ -1,4 +1,4 @@
-﻿@model List<BBT_EstablecimientosDeSalud.Models.DB.EstablecimientoDeSalud>
+﻿@model BBT_EstablecimientosDeSalud.ViewModels.EstablecimientoDeSaludViewModel;
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,7 +15,7 @@
                 mapId: '54cee5be7cf638f8',
                 center: tacna,
             });
-        @foreach (var items in Model)
+        @foreach (var items in Model.listEst)
         {
             @Html.Raw(
             // Lost marcadores, posicionados en los establecimientos de Salud
@@ -40,6 +40,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRC-cA8A-wCyTJoPe2wLtOk1_9aPzVCA&v=beta&callback=initMap&v=weekly"
             defer></script>
 }
+<!--ComboBox-->
+@{
+    var selectList = new List<SelectListItem>();
+    selectList.Add(new SelectListItem { Text = "Seleccione EPS", Value = "" });
+    foreach (var item in Model.listEps)
+    {
+        selectList.Add(new SelectListItem { Text = item.Nombre, Value = item.Id.ToString() });
+    }
+}
 <!--Primera Parte-->
 <div id="Search" class="h-50 bg-primary bg-gradient d-flex rounded-bottom">
     <div id="Text" class="ms-5 col-md-6 align-self-center">
@@ -53,15 +62,7 @@
                 @using (Html.BeginForm("Buscar", "EstablecimientoDeSalud", FormMethod.Post))
                 {
                     <div class="d-flex">
-                        @Html.DropDownList("epsid", new List<SelectListItem>
-                    {
-                    new SelectListItem { Text = "Seleccione EPS", Value = "" },
-                    new SelectListItem { Text = "La Positiva", Value = "1" },
-                    new SelectListItem { Text = "Mapfre", Value = "2" },
-                    new SelectListItem { Text = "Pacifico", Value = "3" },
-                    new SelectListItem { Text = "Rimac", Value = "4" },
-                    new SelectListItem { Text = "Sanitas", Value = "5" }
-                    }, new { @class = "form-control me-2 bg-light rounded-pill", required = "required" })
+                        @Html.DropDownList("epsid", selectList, new { @class = "form-control me-2 bg-light rounded-pill", required = "required" })
                         @Html.TextBox("criterio", null, new { @class = "form-control me-2 bg-light rounded-pill", placeholder = "Ingresa los criterios de búsqueda", aria_label = "Buscar" })
                         <button type="submit" class="btn btn-info">Buscar</button>
                     </div>

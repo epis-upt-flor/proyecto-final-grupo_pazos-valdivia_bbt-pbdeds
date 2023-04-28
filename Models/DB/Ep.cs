@@ -27,4 +27,21 @@ public partial class Ep
         }
         return objEps;
     }
+    public List<Ep> Listar()
+    {
+        List<Ep> objEps = new List<Ep>();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var Eps = from datos in db.Eps select datos;
+                objEps = Eps.ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEps;
+    }
 }

@@ -10,6 +10,7 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         public IActionResult Buscar(string criterio, int epsid)
         {
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+            Busquedum objBusc = new Busquedum();
             List<EstablecimientoDeSaludViewModel> listEstvm = new List<EstablecimientoDeSaludViewModel>();
             Ep objEp = new Ep();
             var listEst = new List<EstablecimientoDeSalud>();
@@ -28,6 +29,10 @@ namespace BBT_EstablecimientosDeSalud.Controllers
                 objEstvm.eps = objEp.BuscarId(item.EpsId);
                 listEstvm.Add(objEstvm);
             }
+            objBusc.TerminoBusqueda = objEp.BuscarId(epsid).Nombre + " " + criterio;
+            objBusc.UsuarioId = Convert.ToInt32(HttpContext.Session.GetString("UsuarioId"));
+            objBusc.Fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+            objBusc.Registrar();
             return View(listEstvm);
         }
         public IActionResult Detalle(int EstId)
