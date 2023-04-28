@@ -1,5 +1,6 @@
 ﻿using BBT_EstablecimientosDeSalud.Models;
 using BBT_EstablecimientosDeSalud.Models.DB;
+using BBT_EstablecimientosDeSalud.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -16,9 +17,12 @@ namespace BBT_EstablecimientosDeSalud.Controllers
 
         public IActionResult Index()
         {
+            EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
+            Ep objEp = new Ep();
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
-            var listEst = objEst.Listar();
-            return View(listEst);
+            objEstvm.listEst = objEst.Listar();
+            objEstvm.listEps = objEp.Listar();
+            return View(objEstvm);
         }
 
         public IActionResult Privacy()

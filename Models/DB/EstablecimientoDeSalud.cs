@@ -23,8 +23,6 @@ public partial class EstablecimientoDeSalud
 
     public string? Imagen { get; set; }
 
-    public virtual ICollection<Busquedum> Busqueda { get; set; } = new List<Busquedum>();
-
     public virtual Ep Eps { get; set; } = null!;
 
     public virtual ICollection<Valoracion> Valoracions { get; set; } = new List<Valoracion>();

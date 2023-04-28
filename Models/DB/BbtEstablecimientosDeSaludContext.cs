@@ -36,7 +36,6 @@ public partial class BbtEstablecimientosDeSaludContext : DbContext
             entity.HasKey(e => e.Id).HasName("PK__Busqueda__3213E83F24B6CDC9");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.EstablecimientoId).HasColumnName("establecimiento_id");
             entity.Property(e => e.Fecha)
                 .HasColumnType("datetime")
                 .HasColumnName("fecha");
@@ -45,11 +44,6 @@ public partial class BbtEstablecimientosDeSaludContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("termino_busqueda");
             entity.Property(e => e.UsuarioId).HasColumnName("usuario_id");
-
-            entity.HasOne(d => d.Establecimiento).WithMany(p => p.Busqueda)
-                .HasForeignKey(d => d.EstablecimientoId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Busqueda__establ__3F466844");
 
             entity.HasOne(d => d.Usuario).WithMany(p => p.Busqueda)
                 .HasForeignKey(d => d.UsuarioId)

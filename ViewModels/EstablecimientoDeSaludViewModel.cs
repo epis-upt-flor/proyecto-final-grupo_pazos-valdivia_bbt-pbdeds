@@ -14,5 +14,7 @@ namespace BBT_EstablecimientosDeSalud.ViewModels
         public List<Valoracion> listValoracion { get; set; }
         public int TotalValoraciones { get; set; }
         public Ep eps { get; set; }
+        public List<EstablecimientoDeSalud> listEst { get; set; }
+        public List<Ep> listEps { get; set; }
     }
 }
