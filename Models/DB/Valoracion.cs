@@ -16,10 +16,8 @@ public partial class Valoracion
 
     public int Valoracion1 { get; set; }
 
-    public virtual EstablecimientoDeSalud Establecimiento { get; set; } = null!;
-
     public virtual Usuario Usuario { get; set; } = null!;
-    //Metodos
+
     public void Guardar()
     {
         try

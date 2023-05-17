@@ -21,8 +21,7 @@ public partial class Usuario
     public virtual ICollection<Busquedum> Busqueda { get; set; } = new List<Busquedum>();
 
     public virtual ICollection<Valoracion> Valoracions { get; set; } = new List<Valoracion>();
-    //Metodos
-    //Registrar
+
     public void Registrar()
     {
         try

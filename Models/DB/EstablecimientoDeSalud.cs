@@ -7,8 +7,6 @@ public partial class EstablecimientoDeSalud
 {
     public int Id { get; set; }
 
-    public int EpsId { get; set; }
-
     public string Nombre { get; set; } = null!;
 
     public string Ciudad { get; set; } = null!;
@@ -23,10 +21,8 @@ public partial class EstablecimientoDeSalud
 
     public string? Imagen { get; set; }
 
-    public virtual Ep Eps { get; set; } = null!;
+    public virtual ICollection<EpsEstablecimientoDeSalud> EpsEstablecimientoDeSaluds { get; set; } = new List<EpsEstablecimientoDeSalud>();
 
-    public virtual ICollection<Valoracion> Valoracions { get; set; } = new List<Valoracion>();
-    //Metodos
     public List<EstablecimientoDeSalud> Buscar(string criterio)
     {
         List<EstablecimientoDeSalud> ListEst = new List<EstablecimientoDeSalud>();

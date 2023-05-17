@@ -15,6 +15,7 @@ public partial class Busquedum
     public DateTime Fecha { get; set; }
 
     public virtual Usuario Usuario { get; set; } = null!;
+
     public void Registrar()
     {
         try
