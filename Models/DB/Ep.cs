@@ -9,7 +9,8 @@ public partial class Ep
 
     public string Nombre { get; set; } = null!;
 
-    public virtual ICollection<EstablecimientoDeSalud> EstablecimientoDeSaluds { get; set; } = new List<EstablecimientoDeSalud>();
+    public virtual ICollection<EpsEstablecimientoDeSalud> EpsEstablecimientoDeSaluds { get; set; } = new List<EpsEstablecimientoDeSalud>();
+
     public Ep BuscarId(int EpsId)
     {
         Ep objEps = new Ep();
