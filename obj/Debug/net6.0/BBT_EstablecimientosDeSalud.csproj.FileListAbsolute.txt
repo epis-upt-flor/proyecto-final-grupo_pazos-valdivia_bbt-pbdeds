@@ -172,3 +172,4 @@ C:\Users\joshu\OneDrive\Documents\GitHub\proyecto-final-grupo_pazos-valdivia_bbt
 C:\Users\joshu\OneDrive\Documents\GitHub\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\obj\Debug\net6.0\BBT_EstablecimientosDeSalud.pdb
 C:\Users\joshu\OneDrive\Documents\GitHub\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\obj\Debug\net6.0\BBT_EstablecimientosDeSalud.genruntimeconfig.cache
 C:\Users\joshu\OneDrive\Documents\GitHub\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\obj\Debug\net6.0\ref\BBT_EstablecimientosDeSalud.dll
+C:\Users\joshu\OneDrive\Documents\GitHub\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\bin\Debug\net6.0\Newtonsoft.Json.dll

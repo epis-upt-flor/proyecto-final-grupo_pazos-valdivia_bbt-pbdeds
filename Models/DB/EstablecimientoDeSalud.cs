@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace BBT_EstablecimientosDeSalud.Models.DB;
@@ -23,15 +24,20 @@ public partial class EstablecimientoDeSalud
 
     public virtual ICollection<EpsEstablecimientoDeSalud> EpsEstablecimientoDeSaluds { get; set; } = new List<EpsEstablecimientoDeSalud>();
 
-    public List<EstablecimientoDeSalud> Buscar(string criterio)
+    public List<EstablecimientoDeSalud> Buscar(string criterio, int epsid)
     {
         List<EstablecimientoDeSalud> ListEst = new List<EstablecimientoDeSalud>();
         try
         {
             using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
             {
-                var EstSalud = from datos in db.EstablecimientoDeSaluds select datos;
-                ListEst = EstSalud.Where(e => e.Nombre.ToLower().Contains(criterio.ToLower()) || e.Descripcion.ToLower().Contains(criterio.ToLower())).ToList();
+                var EstSalud = from datos in db.EstablecimientoDeSaluds
+                               join epsEst in db.EpsEstablecimientoDeSaluds on datos.Id equals epsEst.EstablecimientoId
+                               where epsEst.EpsId == epsid &&
+                                     (datos.Nombre.ToLower().Contains(criterio.ToLower()) || datos.Descripcion.ToLower().Contains(criterio.ToLower()))
+                               select datos;
+
+                ListEst = EstSalud.ToList();
             }
         }
         catch (Exception ex)
@@ -47,8 +53,13 @@ public partial class EstablecimientoDeSalud
         {
             using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
             {
-                var EstSalud = from datos in db.EstablecimientoDeSaluds select datos;
-                objEst = EstSalud.Where(e => e.Id == EstId).FirstOrDefault();
+                objEst = (from e in db.EstablecimientoDeSaluds
+                          join ee in db.EpsEstablecimientoDeSaluds on e.Id equals ee.EstablecimientoId
+                          where e.Id == EstId
+                          select e).FirstOrDefault();
+                //objEst = db.EstablecimientoDeSaluds
+                //.Include(e => e.EpsEstablecimientoDeSaluds)
+                //.FirstOrDefault(e => e.Id == EstId);
             }
         }
         catch (Exception ex)
@@ -57,7 +68,28 @@ public partial class EstablecimientoDeSalud
         }
         return objEst;
     }
-    public List<EstablecimientoDeSalud> Listar()
+    public List<EstablecimientoDeSalud> Listar(int epsid)
+    {
+        List<EstablecimientoDeSalud> objEst = new List<EstablecimientoDeSalud>();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var EstSalud = from datos in db.EstablecimientoDeSaluds
+                               join epsEst in db.EpsEstablecimientoDeSaluds on datos.Id equals epsEst.EstablecimientoId
+                               where epsEst.EpsId == epsid
+                               select datos;
+
+                objEst = EstSalud.ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEst;
+    }
+    public List<EstablecimientoDeSalud> ListarMap()
     {
         List<EstablecimientoDeSalud> objEst = new List<EstablecimientoDeSalud>();
         try
