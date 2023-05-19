@@ -24,6 +24,18 @@
                                 <button type="submit" class="btn btn-info">Ver Detalles</button>
                             </div>
                         }
+                        @if (item.Clasificacion == "positivo")
+                        {
+                            <p class="bg-success text-white d-inline-block p-auto">@item.Clasificacion</p>
+                        }
+                        else if (item.Clasificacion == "negativo")
+                        {
+                            <p class="bg-danger text-white d-inline-block p-auto">@item.Clasificacion</p>
+                        }
+                        else
+                        {
+                            <p class="bg-secondary text-white d-inline-block p-auto">@item.Clasificacion</p>
+                        }
                     </div>
                 </div>
             </div>

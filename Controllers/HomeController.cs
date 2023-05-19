@@ -20,7 +20,7 @@ namespace BBT_EstablecimientosDeSalud.Controllers
             EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
             Ep objEp = new Ep();
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
-            objEstvm.listEst = objEst.Listar();
+            objEstvm.listEst = objEst.ListarMap();
             objEstvm.listEps = objEp.Listar();
             return View(objEstvm);
         }

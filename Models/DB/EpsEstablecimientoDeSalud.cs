@@ -14,4 +14,22 @@ public partial class EpsEstablecimientoDeSalud
     public virtual Ep Eps { get; set; } = null!;
 
     public virtual EstablecimientoDeSalud Establecimiento { get; set; } = null!;
+    public EpsEstablecimientoDeSalud BuscarId(int EstId)
+    {
+        EpsEstablecimientoDeSalud objEp = new EpsEstablecimientoDeSalud();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+
+                var EstSalud = from datos in db.EpsEstablecimientoDeSaluds select datos;
+                objEp = EstSalud.Where(e => e.EstablecimientoId == EstId).FirstOrDefault();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEp;
+    }
 }
