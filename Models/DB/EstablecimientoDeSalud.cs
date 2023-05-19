@@ -53,10 +53,9 @@ public partial class EstablecimientoDeSalud
         {
             using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
             {
-                objEst = (from e in db.EstablecimientoDeSaluds
-                          join ee in db.EpsEstablecimientoDeSaluds on e.Id equals ee.EstablecimientoId
-                          where e.Id == EstId
-                          select e).FirstOrDefault();
+                objEst = db.EstablecimientoDeSaluds
+                .Include(e => e.EpsEstablecimientoDeSaluds)
+                .FirstOrDefault(e => e.Id == EstId);
                 //objEst = db.EstablecimientoDeSaluds
                 //.Include(e => e.EpsEstablecimientoDeSaluds)
                 //.FirstOrDefault(e => e.Id == EstId);

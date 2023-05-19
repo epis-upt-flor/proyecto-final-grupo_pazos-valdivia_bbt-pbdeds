@@ -45,11 +45,11 @@ namespace BBT_EstablecimientosDeSalud.Controllers
             Ep objEp = new Ep();
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
             EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
+            EpsEstablecimientoDeSalud objEpsEst = new EpsEstablecimientoDeSalud();
             Valoracion objVal = new Valoracion();
             var IdEst = objEst.BuscarId(EstId);
             objEstvm.estSalud = IdEst;
-            objEstvm.eps = objEst.EpsEstablecimientoDeSaluds.FirstOrDefault()?.Eps;
-            //objEstvm.eps = objEp.BuscarId(IdEst.Id)?.EpsEstablecimientoDeSaluds?.FirstOrDefault()?.Eps;
+            objEstvm.eps = objEpsEst.BuscarIdEps(EstId);
             objEstvm.valoracion = objVal.BuscarId(IdEst.Id);
             objEstvm.listValoracion = objVal.ListarId(IdEst.Id);
             objEstvm.TotalValoraciones = (objEstvm.listValoracion.Count() == 0) ? 0 : Convert.ToInt32(objEstvm.listValoracion.Sum(x => x.Valoracion1) / objEstvm.listValoracion.Count());
