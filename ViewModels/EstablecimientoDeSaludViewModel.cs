@@ -17,5 +17,6 @@ namespace BBT_EstablecimientosDeSalud.ViewModels
         public List<EstablecimientoDeSalud> listEst { get; set; }
         public List<Ep> listEps { get; set; }
         public string Clasificacion { get; set; }
+        public List<EstablecimientoDeSalud> RecEst { get; set; }
     }
 }

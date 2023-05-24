@@ -63,18 +63,10 @@
                     }
                     @if (@HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre") != null)
                     {
-                        <li class="nav-item">
-                            <!--Condicion de Login-->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button">
-                                    @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="~/Usuario/Perfil">Perfil</a></li>
-                                <li><a class="dropdown-item" href="~/EstablecimientosDeSalud/Index">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                        </li>
+                        <a class="nav-link text-white">
+                            @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
+                        </a>
+                        <a class="nav-link text-white" href="~/Login/Logout" role="button">Cerrar Sesion</a>
 
                     }
                     else

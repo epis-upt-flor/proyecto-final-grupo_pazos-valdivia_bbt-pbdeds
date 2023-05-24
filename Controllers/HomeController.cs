@@ -3,6 +3,7 @@ using BBT_EstablecimientosDeSalud.Models.DB;
 using BBT_EstablecimientosDeSalud.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 
 namespace BBT_EstablecimientosDeSalud.Controllers
 {
@@ -20,8 +21,14 @@ namespace BBT_EstablecimientosDeSalud.Controllers
             EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
             Ep objEp = new Ep();
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+            EstablecimientoResponse objResp = new EstablecimientoResponse();
             objEstvm.listEst = objEst.ListarMap();
             objEstvm.listEps = objEp.Listar();
+            if (HttpContext.Session.GetString("UsuarioId") != null)
+            {
+                var idUs = HttpContext.Session.GetString("UsuarioId");
+                objEstvm.RecEst = objResp.GetEstablecimiento(Convert.ToInt32(idUs)).Result;
+            }
             return View(objEstvm);
         }
 
