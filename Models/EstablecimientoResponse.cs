@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BBT_EstablecimientosDeSalud.Models.DB;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -45,6 +47,48 @@ namespace BBT_EstablecimientosDeSalud.Models
                 // Manejar el caso de error en la respuesta
 
                 return objEstResp;
+            }
+        }
+
+        [HttpGet]
+        public async Task<List<EstablecimientoDeSalud>> GetEstablecimiento(int id)
+        {
+            // URL del endpoint de tu API
+            string apiUrl = $"http://localhost:5000/api/recomendaciones";
+            // Realizar la solicitud GET a la API
+            HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+            List<EstablecimientoDeSalud> ListEst = new List<EstablecimientoDeSalud>();
+            // Verificar si la solicitud fue exitosa
+            if (response.IsSuccessStatusCode)
+            {
+                // Leer la respuesta como una cadena JSON
+                string json = await response.Content.ReadAsStringAsync();
+
+                // Deserializar la respuesta JSON en un diccionario
+                Dictionary<string, List<string>> recomendaciones = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(json);
+
+                if (recomendaciones.ContainsKey(id.ToString()))
+                {
+                    List<string> recomendacionesUsuario = recomendaciones[id.ToString()];
+                    foreach (var item in recomendacionesUsuario)
+                    {
+                        EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+                        objEst = objEst.BuscarId(Convert.ToInt32(item));
+                        ListEst.Add(objEst);
+                    }
+                    // Hacer algo con las recomendaciones del usuario, como pasarlas a la vista
+                    return ListEst;
+                }
+                else
+                {
+                    // Manejar el caso en que no se encuentren recomendaciones para el ID de usuario
+                    return ListEst;
+                }
+            }
+            else
+            {
+                // Manejar el caso de error en la solicitud a la API
+                return ListEst;
             }
         }
     }
