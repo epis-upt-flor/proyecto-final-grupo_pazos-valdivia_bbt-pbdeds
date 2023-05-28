@@ -63,11 +63,10 @@
                     }
                     @if (@HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre") != null)
                     {
-                        <a class="nav-link text-white">
+                        <a class="nav-link text-white" href="~/Usuario/Perfil?idUs=@HttpContextAccessor.HttpContext.Session.GetString("UsuarioId")">
                             @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
                         </a>
                         <a class="nav-link text-white" href="~/Login/Logout" role="button">Cerrar Sesion</a>
-
                     }
                     else
                     {

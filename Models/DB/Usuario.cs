@@ -62,4 +62,21 @@ public partial class Usuario
         }
         return usuario;
     }
+    public Usuario BuscarId(int usId)
+    {
+        Usuario objUs = new Usuario();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var usID = from datos in db.Usuarios select datos;
+                objUs = usID.Where(e => e.Id == usId).FirstOrDefault();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objUs;
+    }
 }

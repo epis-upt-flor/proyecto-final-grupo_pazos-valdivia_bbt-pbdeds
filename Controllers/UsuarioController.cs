@@ -25,5 +25,19 @@ namespace BBT_EstablecimientosDeSalud.Controllers
                 return View(objUsu);
             }
         }
+
+        [HttpGet]
+        public IActionResult Perfil(int idUs)
+        {
+            var resultado = objUsu.BuscarId(idUs);
+            return View(resultado);
+        }
+
+        [HttpPost]
+        public IActionResult Perfil(Usuario objUsu)
+        {
+            objUsu.Registrar();
+            return Redirect("~/Usuario/Perfil?idUs=" + objUsu.Id);
+        }
     }
 }
