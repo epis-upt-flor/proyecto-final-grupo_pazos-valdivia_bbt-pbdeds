@@ -23,16 +23,14 @@
             // Lost marcadores, posicionados en los establecimientos de Salud
             "const"+items.Id+" = new google.maps.Marker({position: {lat:"+items.Latitud.ToString().Replace(',', '.')+",lng:"+items.Longitud.ToString().Replace(',', '.')+"}, map: map,});")
         }
-
                         }
-
         window.initMap = initMap;
     </script>
 }
     @section style {
     <style>
         #map {
-            width: 10000%;
+            width: 100%;
             height: 100vh;
             /*  margin:0;
                     padding: 0;*/
@@ -56,11 +54,11 @@
 <!--Primera Parte-->
 
 <div id="Search" class="h-50 d-flex rounded-bottom" style="background-color:#A8D1E3; ">
-    <div id="Text" class="ms-5 col-md-6 align-self-center">
+    <div id="Text" class="ms-5 col-md-6 align-self-center">    
         <p class="fs-1 fw-bold d-flex justify-content-evenly" style="color:#287D97">
             Encuentra hoy, <br /> el establecimiento de salud que necesitas. <br />
         </p>
-        <p class="fs-5 fw-bold  d-flex justify-content-center" style="color:#287D97">ByteBusterTEC te conecta con establecimientos de salud en tu ciudad</p>
+        <p class="fs-5 fw-bold d-flex justify-content-center" style="color:#287D97">ByteBusterTEC te conecta con establecimientos de salud en tu ciudad</p>
         <!--Barra de búsqueda-->
         <div id="SearchBar" class="d-flex justify-content-center">
             <div class="rounded-pill bg-white p-3 col-md-10">
@@ -79,49 +77,88 @@
         <img src="~/img/HOSPITAL2.png" class="img-fluid" width="10000000px" height="10000000px" align="right" alt="Responsive image">
     </div>
 </div>
+<br />
+<br />
+<br />
+<br />
 
 <!--Segunda Parte-->
 @if (HttpContextAccessor.HttpContext.Session.GetString("UsuarioId") != null)
 {
-    <div id="Sugerencias" class="container bg-light">
-        <h1>Sugerencias</h1>
-        @*<div class="row">
-    @foreach (var item in Model.RecEst)
-    {
-    <!--Primera columna de Tarjetas-->
-    <div class="col-md-4">
-    <div class="card">
-    <img class="card-img-top" src="@item.Imagen" alt="Card image cap">
-    <div class="card-body">
-    <h5 class="card-title">@item.Nombre</h5>
-    <h6 class="card-title text-black-50">eps.Nombre</h6>
-    <hr />
-    <p class="card-text">@item.Descripcion</p>
-    <hr />
-    <p class="card-text">@item.Direccion</p>
-    @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
-    {
-    @Html.TextBox("EstId", @item.Id, new { @class = "form-control me-2 bg-light rounded-pill", aria_label = "Buscar", type = "hidden"})
-    <div class="d-flex">
-    <button type="submit" class="btn btn-info">Ver Detalles</button>
-    </div>
-    }
-    </div>
-    </div>
-    </div>
-    }
-    </div>*@
+    <div id="Sugerencias" class="container " style="color:#287D97">
+        <h1>Sugerencias</h1>     
         @{
             int bandera = 0;
-
         }
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <br />
+        <br />
+        <br />
+        <div id="slider" >
+         
+            @*<div class="row">  *@            
+                <figure>
+
+                    
+                        <div class="carousel-indicators">
+                            @foreach (var item in Model.RecEst)
+                            {
+                                <button type="button" style="background-color:black" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@item.Id" class="active" aria-current="true" aria-label="@item.Nombre"></button>
+
+                            }
+                        </div>
+
+                    @foreach (var item in Model.RecEst)
+                    {
+                       @* <div class="card">
+                            <img class="card-img-top" src="@item.Imagen" alt="Card image cap">
+                            <div class="card-body">
+                                <img class="card-img-top" src="@item.Imagen" alt="Card image cap">
+                                <h5 class="card-title">@item.Nombre</h5>
+                                <hr />
+                                <p class="card-text">@item.Descripcion</p>
+                                <hr />
+                                <p class="card-text">@item.Direccion</p>
+                                @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
+                                {
+                                    @Html.TextBox("EstId", @item.Id, new { @class = "form-control me-2 bg-light rounded-pill", aria_label = "Buscar", type = "hidden"})
+                                    <div class="d-flex">
+                                        <button type="submit" class="btn btn-info">Ver Detalles</button>
+                                    </div>
+                                }
+                            </div>
+                        </div>*@
+                       
+                            <div class="carousel-item @(bandera==0 ? "active":"")">
+                                <img src="@item.Imagen" class="d-block" alt="@item.Nombre">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <div class="card-body">
+                                    <h5 class="card-title text-black">@item.Nombre</h5>
+                                    <hr />
+                                    <p class="card-text text-black">@item.Descripcion</p>
+                                    <hr />
+                                    <p class="card-text text-black">@item.Direccion</p>
+                                    @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
+                                    {
+                                        @Html.TextBox("EstId", @item.Id, new { @class = "form-control me-2 bg-light rounded-pill", aria_label = "Buscar", type = "hidden"})
+                                        <div class="d-flex">
+                                            <button type="submit" class="btn btn-info">Ver Detalles</button>
+                                        </div>
+                                    }
+                                    </div>
+                                </div>
+                            </div>
+                            bandera++;                        
+                    }             
+                </figure>
+        </div>
+     </div>          
+       @* </div>*@
+
+        @*<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 @foreach (var item in Model.RecEst)
                 {
                     <button type="button" style="background-color:black" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@item.Id" class="active" aria-current="true" aria-label="@item.Nombre"></button>
-                    @* <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>*@
 
                 }
             </div>
@@ -132,8 +169,7 @@
                     <div class="carousel-item @(bandera==0 ? "active":"")">
                         <img src="@item.Imagen" class="d-block w-100" alt="@item.Nombre">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5 class="card-title text-black">@item.Nombre</h5>
-                            <h6 class="card-title text-black">@item.Nombre ()</h6>
+                            <h5 class="card-title text-black">@item.Nombre</h5>                          
                             <hr />
                             <p class="card-text text-black">@item.Descripcion</p>
                             <hr />
@@ -149,20 +185,7 @@
                     </div>
                     bandera++;
                 }
-                @*  <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-            </div>
-            </div>*@
+
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" style="background-color:black" aria-hidden="true"></span>
@@ -172,42 +195,8 @@
                 <span class="carousel-control-next-icon" style="background-color:black" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+            </div>*@
 
-    </div>
-
-
-
-}
-else
-{
-    @*<div id="Sugerencias" class="container bg-light">
-        <h1>Sugerencias</h1>
-        <div class="row">
-            <!--Primera columna de Tarjetas-->
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Item 1</h5>
-                        <p class="card-text">Description of Item 1.</p>
-                        <a href="#" class="btn btn-info">Ver Detalles</a>
-                    </div>
-                </div>
-            </div>
-            <!--Segunda columna de Tarjetas-->
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Item 2</h5>
-                        <p class="card-text">Description of Item 2.</p>
-                        <a href="#" class="btn btn-info">Ver Detalles</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>*@
 }
 <br />
 <br />
@@ -243,4 +232,5 @@ else
 </div>
 
 <!--Mapa de Google-->
-<div id="map" class="container mt-5"></div>
+<div id="map" class=" mt-5"></div>
+<footer> </footer> 

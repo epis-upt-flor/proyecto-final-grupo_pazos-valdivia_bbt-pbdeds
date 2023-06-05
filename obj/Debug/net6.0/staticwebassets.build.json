@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8C0CTbkzyVhNQvrOr+u/o0kCI9LuHE7V07peRb9iA+Q=",
+  "Hash": "KKzb9jFR8PXB61/XoO1WP7Mgts6HT4BO8wTswpTPQl0=",
   "Source": "BBT_EstablecimientosDeSalud",
   "BasePath": "_content/BBT_EstablecimientosDeSalud",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BBT_EstablecimientosDeSalud.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\css\\estilos.css",
+      "SourceId": "BBT_EstablecimientosDeSalud",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\",
+      "BasePath": "_content/BBT_EstablecimientosDeSalud",
+      "RelativePath": "css/estilos.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\estilos.css"
+    },
+    {
+      "Identity": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\css\\login.css",
+      "SourceId": "BBT_EstablecimientosDeSalud",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\",
+      "BasePath": "_content/BBT_EstablecimientosDeSalud",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\css\\site.css",
@@ -984,6 +1018,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\NOSOTROS3.png"
+    },
+    {
+      "Identity": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\Wave.png",
+      "SourceId": "BBT_EstablecimientosDeSalud",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\",
+      "BasePath": "_content/BBT_EstablecimientosDeSalud",
+      "RelativePath": "img/Wave.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Wave.png"
     },
     {
       "Identity": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\js\\locales\\es.js",
