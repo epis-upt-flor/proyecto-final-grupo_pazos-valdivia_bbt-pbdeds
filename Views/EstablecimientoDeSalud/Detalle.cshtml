@@ -43,7 +43,7 @@
             defer></script>
 }
 <div class="container bg-light align-self-center">
-    <h1 class="align-self-center text-primary fw-bold text-center">@Model.estSalud.Nombre</h1>
+        <h1 class="align-self-center fw-bold text-center" style="color:#287D97">@Model.estSalud.Nombre</h1>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
@@ -52,12 +52,12 @@
                 </div>
                 <img class="card-img-top" src="@Model.estSalud.Imagen" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">@Model.estSalud.Nombre</h5>
-                    <h6 class="card-title text-black-50">@Model.eps.Nombre</h6>
+                        <h5 class="card-title" style="color:#287D97">@Model.estSalud.Nombre</h5>
+                        <h6 class="card-title text-black-50" style="color:#287D97">@Model.eps.Nombre</h6>
                     <hr />
-                    <p class="card-text">@Model.estSalud.Descripcion</p>
+                        <p class="card-text" style="color:#287D97">@Model.estSalud.Descripcion</p>
                     <hr />
-                    <p class="card-text">@Model.estSalud.Direccion</p>
+                        <p class="card-text" style="color:#287D97">@Model.estSalud.Direccion</p>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
 {
 
     <div id="comments-section" class="container bg-light align-self-center">
-        <h5 class="text-black-50 fw-bold">Agrega tu valoración</h5>
+        <h5 class="text-black-50 fw-bold" style="color:#287D97">Agrega tu valoración</h5>
         @using (Html.BeginForm("Valorar", "EstablecimientoDeSalud", FormMethod.Post))
         {
             @Html.TextBox("Valoracion1", null, new { @class = "rating", @type = "number", data_theme = "krajee-fas", data_min = 0, data_max = 5, data_step = 1, data_size = "xs", @title = "" })
@@ -77,7 +77,7 @@
             @Html.TextBox("EstablecimientoId", Model.estSalud.Id, new { type = "hidden"})
             @Html.TextArea("Comentario", null, new { @class = "form-control"})
             <br />
-            <button type="submit" class="btn btn-info">Agregar Comentario</button>
+            <button type="submit" class="btn btn-login">Agregar Comentario</button>
         }
     </div>
 }

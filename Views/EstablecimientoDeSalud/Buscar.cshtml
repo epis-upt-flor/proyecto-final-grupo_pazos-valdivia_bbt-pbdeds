@@ -3,7 +3,7 @@
     ViewData["Title"] = "Buscar";
 }
 <div id="Resultados" class="container bg-light align-self-center">
-    <h1 class="align-self-center text-primary fw-bold text-center">RESULTADOS</h1>
+    <h1 class="align-self-center fw-bold text-center" style="color:#287D97">RESULTADOS</h1>
     <div class="row">
         @foreach (var item in Model)
         {
@@ -11,30 +11,30 @@
                 <div class="card">
                     <img class="card-img-top" src="@item.estSalud.Imagen" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">@item.estSalud.Nombre</h5>
-                        <h6 class="card-title text-black-50">@item.eps.Nombre</h6>
+                        <h5 class="card-title" style="color:#287D97">@item.estSalud.Nombre</h5>
+                        <h6 class="card-title text-black-50" style="color:#287D97">@item.eps.Nombre</h6>
                         <hr />
-                        <p class="card-text">@item.estSalud.Descripcion</p>
+                        <p class="card-text" style="color:#287D97">@item.estSalud.Descripcion</p>
                         <hr />
-                        <p class="card-text">@item.estSalud.Direccion</p>
+                        <p class="card-text" style="color:#287D97">@item.estSalud.Direccion</p>
                         @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
                         {
                             @Html.TextBox("EstId", item.estSalud.Id, new { @class = "form-control me-2 bg-light rounded-pill", aria_label = "Buscar", type = "hidden"})
                             <div class="d-flex">
-                                <button type="submit" class="btn btn-info">Ver Detalles</button>
+                                <button type="submit" class="btn btn-login">Ver Detalles</button>
                             </div>
                         }
                         @if (item.Clasificacion == "positivo")
                         {
-                            <p class="bg-success text-white d-inline-block p-auto">@item.Clasificacion</p>
+                            <p class=" d-inline-block p-auto" style="color:green">@item.Clasificacion</p>
                         }
                         else if (item.Clasificacion == "negativo")
                         {
-                            <p class="bg-danger text-white d-inline-block p-auto">@item.Clasificacion</p>
+                            <p class=" d-inline-block p-auto" style="color:red">@item.Clasificacion</p>
                         }
                         else
                         {
-                            <p class="bg-secondary text-white d-inline-block p-auto">@item.Clasificacion</p>
+                    <p class="d-inline-block p-auto" style="color:gray">@item.Clasificacion</p>
                         }
                     </div>
                 </div>
