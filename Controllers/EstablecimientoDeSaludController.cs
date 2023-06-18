@@ -35,7 +35,7 @@ namespace BBT_EstablecimientosDeSalud.Controllers
                 listEstvm.Add(objEstvm);
             }
             objBusc.TerminoBusqueda = objEp.BuscarId(epsid).Nombre + " " + criterio;
-            objBusc.UsuarioId = Convert.ToInt32(HttpContext.Session.GetString("UsuarioId"));
+            objBusc.UsuarioId = Convert.ToInt32(HttpContext.Session.GetString("UsuarioId") ?? "1");
             objBusc.Fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
             objBusc.Registrar();
             return View(listEstvm);
