@@ -31,4 +31,21 @@ public partial class Busquedum
             throw;
         }
     }
+    public List<Busquedum> ListarBusqueda()
+    {
+        List<Busquedum> objBus = new List<Busquedum>();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var Bus = from datos in db.Busqueda select datos;
+                objBus = Bus.ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objBus;
+    }
 }

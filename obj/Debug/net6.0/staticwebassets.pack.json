@@ -185,6 +185,14 @@
       "PackagePath": "staticwebassets\\DataTables\\datatables.min.js"
     },
     {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\css\\estilos.css",
+      "PackagePath": "staticwebassets\\css\\estilos.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -203,6 +211,30 @@
     {
       "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\Clinica2.png",
       "PackagePath": "staticwebassets\\img\\Clinica2.png"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\HOSPITAL.png",
+      "PackagePath": "staticwebassets\\img\\HOSPITAL.png"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\HOSPITAL2.png",
+      "PackagePath": "staticwebassets\\img\\HOSPITAL2.png"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\NOSOTROS.png",
+      "PackagePath": "staticwebassets\\img\\NOSOTROS.png"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\NOSOTROS2.png",
+      "PackagePath": "staticwebassets\\img\\NOSOTROS2.png"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\NOSOTROS3.png",
+      "PackagePath": "staticwebassets\\img\\NOSOTROS3.png"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\img\\Wave.png",
+      "PackagePath": "staticwebassets\\img\\Wave.png"
     },
     {
       "Id": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\wwwroot\\js\\locales\\es.js",
