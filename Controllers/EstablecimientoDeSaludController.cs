@@ -50,7 +50,6 @@ namespace BBT_EstablecimientosDeSalud.Controllers
             var IdEst = objEst.BuscarId(EstId);
             objEstvm.estSalud = IdEst;
             objEstvm.eps = objEpsEst.BuscarIdEps(EstId);
-            objEstvm.valoracion = objVal.BuscarId(IdEst.Id);
             objEstvm.listValoracion = objVal.ListarId(IdEst.Id);
             objEstvm.TotalValoraciones = (objEstvm.listValoracion.Count() == 0) ? 0 : Convert.ToInt32(objEstvm.listValoracion.Sum(x => x.Valoracion1) / objEstvm.listValoracion.Count());
             return View(objEstvm);
