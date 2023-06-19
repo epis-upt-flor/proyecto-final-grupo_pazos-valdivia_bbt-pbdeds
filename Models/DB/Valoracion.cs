@@ -33,23 +33,6 @@ public partial class Valoracion
             throw;
         }
     }
-    public Valoracion BuscarId(int EstId)
-    {
-        Valoracion objEst = new Valoracion();
-        try
-        {
-            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
-            {
-                var valo = from datos in db.Valoracions select datos;
-                objEst = valo.Where(e => e.EstablecimientoId == EstId).FirstOrDefault();
-            }
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
-        return objEst;
-    }
     public List<Valoracion> ListarId(int EstId)
     {
         List<Valoracion> objEst = new List<Valoracion>();
