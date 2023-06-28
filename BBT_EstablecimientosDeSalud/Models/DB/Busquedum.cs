@@ -15,37 +15,4 @@ public partial class Busquedum
     public DateTime Fecha { get; set; }
 
     public virtual Usuario Usuario { get; set; } = null!;
-
-    public void Registrar()
-    {
-        try
-        {
-            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
-            {
-                db.Entry(this).State = EntityState.Added;
-                db.SaveChanges();
-            }
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
-    }
-    public List<Busquedum> ListarBusqueda()
-    {
-        List<Busquedum> objBus = new List<Busquedum>();
-        try
-        {
-            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
-            {
-                var Bus = from datos in db.Busqueda select datos;
-                objBus = Bus.ToList();
-            }
-        }
-        catch (Exception ex)
-        {
-            throw;
-        }
-        return objBus;
-    }
 }
