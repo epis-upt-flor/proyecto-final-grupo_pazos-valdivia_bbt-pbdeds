@@ -1,5 +1,6 @@
 ﻿using BBT_EstablecimientosDeSalud.Models;
 using BBT_EstablecimientosDeSalud.Models.DB;
+using BBT_EstablecimientosDeSalud.Repositories;
 using BBT_EstablecimientosDeSalud.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -10,7 +11,7 @@ namespace BBT_EstablecimientosDeSalud.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private readonly EstablecimientodeSaludRepositoryimpl estrepo = new EstablecimientodeSaludRepositoryimpl(new BbtEstablecimientosDeSaludContext());
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -20,9 +21,8 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         {
             EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
             Ep objEp = new Ep();
-            EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
             EstablecimientoResponse objResp = new EstablecimientoResponse();
-            objEstvm.listEst = objEst.ListarMap();
+            objEstvm.listEst = estrepo.ListarMap();
             objEstvm.listEps = objEp.Listar();
             if (HttpContext.Session.GetString("UsuarioId") != null)
             {
