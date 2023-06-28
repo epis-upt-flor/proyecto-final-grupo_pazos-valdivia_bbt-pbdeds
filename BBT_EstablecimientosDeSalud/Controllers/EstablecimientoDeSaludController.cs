@@ -10,12 +10,12 @@ namespace BBT_EstablecimientosDeSalud.Controllers
     {
         private readonly EstablecimientodeSaludRepositoryimpl estrepo = new EstablecimientodeSaludRepositoryimpl(new BbtEstablecimientosDeSaludContext());
         private readonly BusquedaRepositoryimpl busqrepo = new BusquedaRepositoryimpl(new BbtEstablecimientosDeSaludContext());
+        private readonly EpRepositoryimpl eprepo = new EpRepositoryimpl(new BbtEstablecimientosDeSaludContext());
+        private readonly EpsEstablecimientodeSaludRepositoryimpl epsestrepo = new EpsEstablecimientodeSaludRepositoryimpl(new BbtEstablecimientosDeSaludContext());
         public IActionResult Buscar(string criterio, int epsid)
         {
-            EpsEstablecimientoDeSalud objEpsEst = new EpsEstablecimientoDeSalud();
             Busquedum objBusc = new Busquedum();
             List<EstablecimientoDeSaludViewModel> listEstvm = new List<EstablecimientoDeSaludViewModel>();
-            Ep objEp = new Ep();
             var listEst = new List<EstablecimientoDeSalud>();
             var listEpsEst = new List<EpsEstablecimientoDeSalud>();
             if (criterio == "" || criterio == null)
@@ -31,11 +31,11 @@ namespace BBT_EstablecimientosDeSalud.Controllers
                 EstablecimientoResponse objEstResp = new EstablecimientoResponse();
                 EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
                 objEstvm.estSalud = item;
-                objEstvm.eps = objEp.BuscarId(objEpsEst.BuscarId(item.Id).EpsId);
+                objEstvm.eps = eprepo.BuscarId(epsestrepo.BuscarId(item.Id).EpsId);
                 objEstvm.Clasificacion = objEstResp.ObtenerEstablecimiento(item.Id).Result.clasfreal;
                 listEstvm.Add(objEstvm);
             }
-            objBusc.TerminoBusqueda = objEp.BuscarId(epsid).Nombre + " " + criterio;
+            objBusc.TerminoBusqueda = eprepo.BuscarId(epsid).Nombre + " " + criterio;
             objBusc.UsuarioId = Convert.ToInt32(HttpContext.Session.GetString("UsuarioId") ?? "1");
             objBusc.Fecha = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
             busqrepo.Registrar(objBusc);
@@ -43,13 +43,11 @@ namespace BBT_EstablecimientosDeSalud.Controllers
         }
         public IActionResult Detalle(int EstId)
         {
-            Ep objEp = new Ep();
             EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
-            EpsEstablecimientoDeSalud objEpsEst = new EpsEstablecimientoDeSalud();
             Valoracion objVal = new Valoracion();
             var IdEst = estrepo.BuscarId(EstId);
             objEstvm.estSalud = IdEst;
-            objEstvm.eps = objEpsEst.BuscarIdEps(EstId);
+            objEstvm.eps = epsestrepo.BuscarIdEps(EstId);
             objEstvm.listValoracion = objVal.ListarId(IdEst.Id);
             objEstvm.TotalValoraciones = (objEstvm.listValoracion.Count() == 0) ? 0 : Convert.ToInt32(objEstvm.listValoracion.Sum(x => x.Valoracion1) / objEstvm.listValoracion.Count());
             return View(objEstvm);

@@ -8159,23 +8159,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\joshu\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\LadyFivs\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\Test_BBT_EStablecimientosDeSalud\\Test_BBT_EStablecimientosDeSalud.csproj",
+      "projectUniqueName": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\Test_BBT_EStablecimientosDeSalud\\Test_BBT_EStablecimientosDeSalud.csproj",
       "projectName": "Test_BBT_EStablecimientosDeSalud",
-      "projectPath": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\Test_BBT_EStablecimientosDeSalud\\Test_BBT_EStablecimientosDeSalud.csproj",
-      "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\Test_BBT_EStablecimientosDeSalud\\obj\\",
+      "projectPath": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\Test_BBT_EStablecimientosDeSalud\\Test_BBT_EStablecimientosDeSalud.csproj",
+      "packagesPath": "C:\\Users\\LadyFivs\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\Test_BBT_EStablecimientosDeSalud\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LadyFivs\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8184,14 +8186,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\BBT_EstablecimientosDeSalud\\BBT_EstablecimientosDeSalud.csproj": {
-              "projectPath": "C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\BBT_EstablecimientosDeSalud\\BBT_EstablecimientosDeSalud.csproj"
+            "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\BBT_EstablecimientosDeSalud\\BBT_EstablecimientosDeSalud.csproj": {
+              "projectPath": "C:\\Users\\LadyFivs\\Desktop\\PROYECTO\\proyecto-final-grupo_pazos-valdivia_bbt-pbdeds\\BBT_EstablecimientosDeSalud\\BBT_EstablecimientosDeSalud.csproj"
             }
           }
         }
@@ -8243,7 +8246,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
