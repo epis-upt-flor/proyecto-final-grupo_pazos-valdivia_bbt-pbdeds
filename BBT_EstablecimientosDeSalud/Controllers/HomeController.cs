@@ -12,6 +12,7 @@ namespace BBT_EstablecimientosDeSalud.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly EstablecimientodeSaludRepositoryimpl estrepo = new EstablecimientodeSaludRepositoryimpl(new BbtEstablecimientosDeSaludContext());
+        private readonly EpRepositoryimpl eprepo = new EpRepositoryimpl(new BbtEstablecimientosDeSaludContext());
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -19,11 +20,10 @@ namespace BBT_EstablecimientosDeSalud.Controllers
 
         public IActionResult Index()
         {
-            EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();
-            Ep objEp = new Ep();
+            EstablecimientoDeSaludViewModel objEstvm = new EstablecimientoDeSaludViewModel();          
             EstablecimientoResponse objResp = new EstablecimientoResponse();
             objEstvm.listEst = estrepo.ListarMap();
-            objEstvm.listEps = objEp.Listar();
+            objEstvm.listEps = eprepo.Listar();
             if (HttpContext.Session.GetString("UsuarioId") != null)
             {
                 var idUs = HttpContext.Session.GetString("UsuarioId");
